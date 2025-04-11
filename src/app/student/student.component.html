@@ -2,19 +2,19 @@
     <div class="row">
         <h1 class="text-center">Cadastro de Alunos</h1>
         <div class="col-7 m-auto">
-            <form>
+            <form [formGroup]="formGroupStudent">
                 <div class="mb-3">
                   <label for="inputName" class="form-label">Nome: </label>
-                  <input type="text" class="form-control" id="inputName" aria-describedby="nameHelp">
+                  <input formControlName="name" type="text" class="form-control" id="inputName" aria-describedby="nameHelp">
                   <div id="nameHelp" class="form-text text-white">Digite o seu nome</div>
                 </div>
                 <div class="mb-3">
                     <label for="inputCourse" class="form-label">Curso: </label>
-                    <input type="text" class="form-control" id="inputCourse" aria-describedby="courseHelp">
+                    <input formControlName="course" type="text" class="form-control" id="inputCourse" aria-describedby="courseHelp">
                     <div id="courseHelp" class="form-text text-white">Digite o seu curso</div>
                   </div>
         
-                <button type="submit" class="btn btn-primary">Salvar</button>
+                <button type="submit" class="btn btn-primary" (click)="save()">Salvar</button>
               </form>
               <h1 class="text-center">Alunos Cadastrados</h1>
               <table class="table">
