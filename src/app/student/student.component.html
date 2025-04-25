@@ -23,6 +23,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Curso</th>
+                    <th scope="col">Remover</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -30,6 +31,7 @@
                     <th scope="row">{{s.id}}</th>
                     <td>{{s.name}}</td>
                     <td>{{s.course}}</td>
+                    <td><button class="btn btn-danger" (click)="delete(s)">Remover</button></td>
                 </tbody>
               </table>
         </div>

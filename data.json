@@ -1,21 +1,6 @@
 {
   "students": [
     {
-      "id": 1,
-      "name": "Ana Maria",
-      "course": "Computação"
-    },
-    {
-      "id": 2,
-      "name": "Fernanda Silva",
-      "course": "Computação"
-    },
-    {
-      "id": 3,
-      "name": "Marcela Rosa",
-      "course": "Matemática"
-    },
-    {
       "id": 4,
       "name": "Modongo",
       "course": "Promiscuidade"
@@ -24,6 +9,16 @@
       "id": 5,
       "name": "Tiago",
       "course": "Lactose"
+    },
+    {
+      "id": 6,
+      "name": "José",
+      "course": "Falar com Véia"
+    },
+    {
+      "id": 7,
+      "name": "Kiwi",
+      "course": "Capinar Lote"
     }
   ]
 }
