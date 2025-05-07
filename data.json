@@ -19,6 +19,26 @@
       "id": 7,
       "name": "Kiwi",
       "course": "Capinar Lote"
+    },
+    {
+      "id": 8,
+      "name": "Erick",
+      "course": "Tejo"
+    },
+    {
+      "id": 9,
+      "name": "teste",
+      "course": "teste"
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "name": "Comer Areia",
+      "vagas": "",
+      "periodo": "Tarde",
+      "modalidade": "Presencial",
+      "disciplinasComplementares": true
     }
   ]
 }
