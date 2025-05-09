@@ -4,6 +4,6 @@ export interface Course {
     vagas: 'Abertas' | 'Fechadas';
     periodo: 'Manhã' | 'Tarde' | 'Noite';
     modalidade: 'EAD' | 'Presencial';
-    disciplinasComplementares: 'Sim' | 'Não';
+    disciplinasComplementares: boolean;
   }
   

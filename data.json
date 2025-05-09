@@ -34,9 +34,9 @@
   "courses": [
     {
       "id": 1,
-      "name": "Comer Areia",
-      "vagas": "",
-      "periodo": "Tarde",
+      "name": "teste",
+      "vagas": "Abertas",
+      "periodo": "Manhã",
       "modalidade": "Presencial",
       "disciplinasComplementares": true
     }

@@ -1,95 +1,159 @@
 <div class="container bg-dark text-white">
-    <div class="row">
-      <h1 class="text-center">Cadastro de Cursos</h1>
-      <div class="col-7 m-auto">
-        <form [formGroup]="formGroupCourse">
-          <div class="mb-3">
-            <label for="inputName" class="form-label">Nome: </label>
-            <input formControlName="name" type="text" class="form-control" id="inputName" aria-describedby="nameHelp">
-            <div id="nameHelp" class="form-text text-white">Digite o nome do curso</div>
+  <div class="row">
+    <h1 class="text-center">Cadastro de Cursos</h1>
+    <div class="col-7 m-auto">
+      <form [formGroup]="formGroupCourse">
+        <div class="mb-3">
+          <label for="inputName" class="form-label">Nome: </label>
+          <input
+            formControlName="name"
+            type="text"
+            class="form-control"
+            id="inputName"
+            aria-describedby="nameHelp"
+          />
+          <div id="nameHelp" class="form-text text-white">
+            Digite o nome do curso
           </div>
-  
-          <div class="mb-3">
-            <label class="form-label">Vagas: </label>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" formControlName="modalidade" value="Abertas" id="vagasAbertas">
-              <label class="form-check-label" for="vagasAvagasAbertas">Abertas</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" formControlName="modalidade" value="Fechadas" id="vagasFechadas">
-              <label class="form-check-label" for="vagasFechadas">Fechadas</label>
-            </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Vagas: </label>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              formControlName="vagas"
+              value="Abertas"
+              id="vagasAbertas"
+            />
+            <label class="form-check-label" for="vagasAbertas">Abertas</label>
           </div>
-  
-          <div class="mb-3">
-            <label class="form-label">Período: </label>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" formControlName="periodo" value="Manhã" id="periodoManha">
-              <label class="form-check-label" for="periodoManha">Manhã</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" formControlName="periodo" value="Tarde" id="periodoTarde">
-              <label class="form-check-label" for="periodoTarde">Tarde</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" formControlName="periodo" value="Noite" id="periodoNoite">
-              <label class="form-check-label" for="periodoNoite">Noite</label>
-            </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              formControlName="vagas"
+              value="Fechadas"
+              id="vagasFechadas"
+            />
+            <label class="form-check-label" for="vagasFechadas">Fechadas</label>
           </div>
-  
-          <div class="mb-3">
-            <label class="form-label">Modalidade: </label>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" formControlName="modalidade" value="EAD" id="modalidadeEAD">
-              <label class="form-check-label" for="modalidadeEAD">EAD</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" formControlName="modalidade" value="Presencial" id="modalidadePresencial">
-              <label class="form-check-label" for="modalidadePresencial">Presencial</label>
-            </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Período: </label>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              formControlName="periodo"
+              value="Manhã"
+              id="periodoManha"
+            />
+            <label class="form-check-label" for="periodoManha">Manhã</label>
           </div>
-  
-          <div class="mb-3">
-            <label class="form-label">Disciplinas Complementares:</label>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" formControlName="disciplinasComplementares" value="Sim" id="disciplinasSim">
-              <label class="form-check-label" for="disciplinasSim">Sim</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" formControlName="disciplinasComplementares" value="Não" id="disciplinasNao">
-              <label class="form-check-label" for="disciplinasNao">Não</label>
-            </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              formControlName="periodo"
+              value="Tarde"
+              id="periodoTarde"
+            />
+            <label class="form-check-label" for="periodoTarde">Tarde</label>
           </div>
-  
-          <button type="submit" class="btn btn-primary" (click)="save()">Salvar</button>
-        </form>
-  
-        <h1 class="text-center">Cursos Cadastrados</h1>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Nome</th>
-              <th scope="col">Vagas</th>
-              <th scope="col">Período</th>
-              <th scope="col">Modalidade</th>
-              <th scope="col">Disciplinas Complementares</th>
-              <th scope="col">Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let course of courses">
-              <th scope="row">{{course.id}}</th>
-              <td>{{course.name}}</td>
-              <td>{{course.vagas}}</td>
-              <td>{{course.periodo}}</td>
-              <td>{{course.modalidade}}</td>
-              <td>{{course.disciplinasComplementares}}</td>
-              <td><button class="btn btn-danger" (click)="delete(course)">Remover</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              formControlName="periodo"
+              value="Noite"
+              id="periodoNoite"
+            />
+            <label class="form-check-label" for="periodoNoite">Noite</label>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Modalidade: </label>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              formControlName="modalidade"
+              value="EAD"
+              id="modalidadeEAD"
+            />
+            <label class="form-check-label" for="modalidadeEAD">EAD</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              formControlName="modalidade"
+              value="Presencial"
+              id="modalidadePresencial"
+            />
+            <label class="form-check-label" for="modalidadePresencial"
+              >Presencial</label
+            >
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Disciplinas Complementares:</label>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              formControlName="disciplinasComplementares"
+              id="disciplinasCheckbox"
+            />
+            <label class="form-check-label" for="disciplinasCheckbox">
+              Possui disciplinas complementares
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" (click)="save()">
+          Salvar
+        </button>
+      </form>
+
+      <h1 class="text-center">Cursos Cadastrados</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Vagas</th>
+            <th scope="col">Período</th>
+            <th scope="col">Modalidade</th>
+            <th scope="col">Disciplinas Complementares</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Dentro do <tbody> -->
+          <tr *ngFor="let course of courses">
+            <th scope="row">{{ course.id }}</th>
+            <td>{{ course.name }}</td>
+            <td>{{ course.vagas }}</td>
+            <td>{{ course.periodo }}</td>
+            <td>{{ course.modalidade }}</td>
+            <td>{{ course.disciplinasComplementares ? "Sim" : "Não" }}</td>
+            <td>
+              <button class="btn btn-warning me-1" (click)="edit(course)">
+                Editar
+              </button>
+              <button class="btn btn-danger" (click)="delete(course)">
+                Remover
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-  
+</div>
