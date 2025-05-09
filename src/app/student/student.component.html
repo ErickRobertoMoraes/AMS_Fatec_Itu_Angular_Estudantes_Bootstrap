@@ -2,7 +2,7 @@
     <div class="row">
         <h1 class="text-center">Cadastro de Alunos</h1>
         <div class="col-7 m-auto">
-            <form [formGroup]="formGroupStudent">
+          <form [formGroup]="formGroupStudent">
                 <div class="mb-3">
                   <label for="inputName" class="form-label">Nome: </label>
                   <input formControlName="name" type="text" class="form-control" id="inputName" aria-describedby="nameHelp">
@@ -14,7 +14,15 @@
                     <div id="courseHelp" class="form-text text-white">Digite o seu curso</div>
                   </div>
         
-                <button type="submit" class="btn btn-primary" (click)="save()">Salvar</button>
+                <button *ngIf="!isEditing" type="submit" class="btn btn-primary" (click)="onClickSave()">Salvar</button>
+
+                <button *ngIf="isEditing" class="btn btn-primary" (click)="onClickConfirmUpdate()">
+                  Atualizar
+                </button>
+        
+                <button class="btn btn-secondary ms-2" (click)="onClickClear()">
+                  Cancelar
+                </button>
               </form>
               <h1 class="text-center">Alunos Cadastrados</h1>
               <table class="table">
@@ -24,6 +32,7 @@
                     <th scope="col">Nome</th>
                     <th scope="col">Curso</th>
                     <th scope="col">Remover</th>
+                    <th scope="col">Alterar</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -31,7 +40,11 @@
                     <th scope="row">{{s.id}}</th>
                     <td>{{s.name}}</td>
                     <td>{{s.course}}</td>
-                    <td><button class="btn btn-danger" (click)="delete(s)">Remover</button></td>
+                    <td><button class="btn btn-danger" (click)="onClickDelete(s)">Remover</button></td>
+                    <td><button class="btn btn-primary" (click)="onClickUpdate(s)">
+                      Alterar
+                    </button>
+                  </td>
                 </tbody>
               </table>
         </div>

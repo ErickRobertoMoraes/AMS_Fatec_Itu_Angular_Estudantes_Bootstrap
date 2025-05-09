@@ -12,44 +12,65 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class StudentComponent implements OnInit {
   students: Student[] = [];
   formGroupStudent: FormGroup;
+  isEditing: boolean = false;
 
   constructor(private service: StudentService,
-              private formBuilder:FormBuilder
-  ){
+    private formBuilder: FormBuilder
+  ) {
     this.formGroupStudent = formBuilder.group(
       {
-      id: [''],
-      name: [''],
-      course: ['']
-    }
-  );
+        id: [''],
+        name: [''],
+        course: ['']
+      }
+    );
+
+
   }
 
   ngOnInit(): void {
     this.loadStudents();
   }
 
-  loadStudents(){
+  loadStudents() {
     this.service.getAll().subscribe({
       next: json => this.students = json
-  })
+    });
   }
 
-  save()
-  {
-    this.service.save(this.formGroupStudent.value)
-                .subscribe({
-                  next: json => { this.students.push(json);
-                    this.formGroupStudent.reset();
-                  }
-                })
+  onClickSave() {
+    this.service.save(this.formGroupStudent.value).subscribe({
+          next: json => {
+            this.students.push(json);
+            this.formGroupStudent.reset();
+          }
+    });
   }
 
-  delete(student: Student) {
-    this.service.delete(student).subscribe(
-      {
+  onClickDelete(student: Student) {
+    this.service.delete(student).subscribe({
         next: () => this.loadStudents()
-      }
-    )
-    }
+    });
+  }
+
+  onClickUpdate(student: Student) {
+    this.formGroupStudent.setValue(student);
+    this.isEditing=true;
+  }
+
+  onClickConfirmUpdate() {
+    this.service.update(this.formGroupStudent.value)
+      .subscribe({
+          next: () => {
+              this.loadStudents(); 
+              this.formGroupStudent.reset();
+              this.isEditing=false;   
+          }
+      });
+  }
+  onClickClear() {
+    this.isEditing=false;
+    this.formGroupStudent.reset();
+  }
 }
+ 

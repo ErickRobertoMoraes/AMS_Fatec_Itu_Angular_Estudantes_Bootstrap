@@ -1,44 +1,32 @@
 {
   "students": [
     {
-      "id": 4,
-      "name": "Modongo",
-      "course": "Promiscuidade"
+      "id": 1,
+      "name": "Cleber",
+      "course": "ComerAreia"
     },
     {
-      "id": 5,
-      "name": "Tiago",
-      "course": "Lactose"
-    },
-    {
-      "id": 6,
-      "name": "José",
-      "course": "Falar com Véia"
-    },
-    {
-      "id": 7,
-      "name": "Kiwi",
-      "course": "Capinar Lote"
-    },
-    {
-      "id": 8,
-      "name": "Erick",
-      "course": "Tejo"
-    },
-    {
-      "id": 9,
-      "name": "teste",
-      "course": "teste"
+      "id": 2,
+      "name": "teste02",
+      "course": "teste02"
     }
   ],
   "courses": [
     {
       "id": 1,
-      "name": "teste",
+      "name": "Modongo",
       "vagas": "Abertas",
       "periodo": "Manhã",
       "modalidade": "Presencial",
       "disciplinasComplementares": true
+    },
+    {
+      "id": 2,
+      "name": "Capinar Lote",
+      "vagas": "Abertas",
+      "periodo": "Manhã",
+      "modalidade": "Presencial",
+      "disciplinasComplementares": false
     }
   ]
 }
